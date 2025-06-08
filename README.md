@@ -1,17 +1,27 @@
-# Basit HTTP Sunucusu
+# Basic HTTP Server (Socket + Docker + Compose)
 
-Bu proje Python kullanılarak sıfırdan geliştirilmiş bir HTTP sunucusudur.
+This is a minimal HTTP server implemented in Python using raw sockets and threading, without using any frameworks.
 
-## Özellikler
+## 🔧 Features
 
-- `GET` isteği ile statik dosya sunumu (`/static`)
-- `GET /api/hello` ile JSON çıktısı
-- MIME tipi yönetimi
-- Çoklu bağlantı desteği (threading)
+- Handles basic `GET` requests
+- Serves static files from `/static` directory
+- Responds with JSON from `/api/hello`
+- Correct `Content-Type` (MIME) handling
+- Multithreading for handling multiple clients
+- 404 and 500 error handling
 
-## Kullanım
+## 🐳 Docker Support
+
+You can run this server using Docker:
 
 ```bash
 docker build -t http-server .
 docker run -p 8080:8080 http-server
+```
+
+Or with Docker Compose:
+
+```bash
+docker compose up --build
 ```
